@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <form [formGroup]="formdata">
+        <div class="form-group mt-2 mb-2">
+            <label for="email">Description</label>
+            <div class="mt-2">
+                <angular-editor formControlName="description" placeholder="Enter Text Here ..."></angular-editor>
+            </div>
+            <div *ngIf="formdata.controls.description.errors && formdata.controls.description.touched" class="error">
+                Description is Required(Max 400 - Min 5).
+            </div>
+        </div>
+        <button class="btn_style ml-4 mt-2 mb-2" type="button" matTooltip="Click Here To Register"
+            (click)="RegisterText(formdata)">Register</button>
+    </form>
+</div>

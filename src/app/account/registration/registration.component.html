@@ -1,0 +1,53 @@
+<section class="Singup-wrap mtb-40">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="login-box">
+                    <div class="w-100" style="background: beige;">
+                        <h2 class="heading-section" style="text-align:center;">Registration Here</h2>
+                        <div class="alert alert-success mt-1 mb-2" *ngIf="datasaved">{{massage}}</div>
+                        <form [formGroup]="regForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group mb-2">
+                                        <input type="text" class="form-control cust-input-box" id="fullName"
+                                            aria-describedby="emailHelp" placeholder="Enter User Name"
+                                            formControlName="fullName">
+                                        <small *ngIf="!regForm.get('fullName').valid && regForm.get('fullName').touched"
+                                            class="form-text text-danger">Please Enter Name.</small>
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <input type="email" class="form-control cust-input-box" id="email"
+                                            formControlName="email" placeholder="Enter User Email">
+                                        <small *ngIf="!regForm.get('email').valid && regForm.get('email').touched"
+                                            class="form-text text-danger">Please Enter Valid Email.</small>
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <input type="password" class="form-control cust-input-box" id="password"
+                                            formControlName="password" placeholder="Enter User Password">
+                                        <small *ngIf="!regForm.get('password').valid && regForm.get('password').touched"
+                                            class="form-text text-danger">Please Enter Password.</small>
+                                    </div>
+                                    <p class="font-small white-text d-flex justify-content-end">
+                                        <a class="login_Anchor">Already Have Acc? <span class="login_signup"
+                                                routerLink="/login">Click
+                                                Sign-In</span></a>
+                                    </p>
+                                    <div class="form-group mb-2">
+                                        <button class="btn_style ml-4" style="width:150px;" type="button"
+                                            matTooltip="Click Here To Sign-Up" [disabled]="!regForm.valid"
+                                            (click)="postUserDetails()">Sign
+                                            Up</button>
+                                        <button class="btn_style ml-4" style="width:150px;margin-left: 20px;"
+                                            type="button" matTooltip="Click Here To Reset"
+                                            (click)="resetregForm()">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

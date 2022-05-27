@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="chat_bg">
+        <img src="assets/images/chat.png" class="chatlogo" alt="Chat Box Logo" />
+        <div class="container">
+            <!-- <div class="message right" id="message-list">Deepak : hey how are YOU ?</div> -->
+            <ul class="message left" id="message-list"></ul>
+        </div>
+        <div class="container d-flex">
+            <div class="form-group mb-2 w-100">
+                <input type="text" class="form-control cust-input-box" id="chatText" style="margin-left: 10px;"
+                    formControlName="chatText" placeholder="Enter Chat Text Here..">
+            </div>
+            <div class="form-group mb-2">
+                <button class="btn_style chat_send_button" type="button" matTooltip="Click Here To Send Message"
+                  id="message"  (click)="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<div class="chat-message">
+    <div class="chat-message-show-container">
+        <ul class="chat-message-show-list" id="message-list"></ul>
+        <div class="chat-message-create-container">
+            <input type="text" class="chat-message-create-container">
+            <button class="btn_style chat_send_button" type="button" matTooltip="Click Here To Send Message"
+                (click)="sendMessage()">Send</button>
+        </div>
+    </div>
+</div> -->

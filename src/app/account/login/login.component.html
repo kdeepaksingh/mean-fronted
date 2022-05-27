@@ -1,0 +1,48 @@
+<section class="Singup-wrap mtb-40">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <div class="login-box">
+                    <h1>User Login</h1>
+                    <div *ngIf="status=='success';else errorStatus">
+                        <div class="alert alert-success" *ngIf="datasaved">
+                            {{massage}}
+                        </div>
+                    </div>
+                    <!-- ; else errorStatus -->
+                    <ng-template #errorstatus>
+                        <div class="alert alert-danger" *ngIf="datasaved">
+                            {{message}}
+                        </div>
+                    </ng-template>
+                    <form [formGroup]="loginForm">
+                        <div class="form-group mb-2">
+                            <input type="email" class="form-control cust-input-box" id="email"
+                                formControlName="email" placeholder="Enter User Email">
+                            <small *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched"
+                                class="form-text text-danger">Please Enter Valid Email.</small>
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="password" class="form-control cust-input-box" id="password"
+                                formControlName="password" placeholder="Enter User Password">
+                            <small *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched"
+                                class="form-text text-danger">Please Enter Password.</small>
+                        </div>
+                        <p class="font-small white-text d-flex justify-content-end">
+                            <a class="login_Anchor">Don;t Have Acc? <span class="login_signup"
+                                    routerLink="/register">Click
+                                    Sign-Up</span></a>
+                        </p>
+                        <div class="form-group mb-2">
+                            <button class="btn_style ml-4" style="width:150px;" type="button"
+                                matTooltip="Click Here To Login" [disabled]="!loginForm.valid"
+                                (click)="postLoginDetails()">Login</button>
+                            <button class="btn_style ml-4" style="width:150px;margin-left: 20px;" type="button"
+                                matTooltip="Click Here To Reset" (click)="resetLoginForm()">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
